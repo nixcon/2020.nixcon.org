@@ -4,7 +4,7 @@ set -euo pipefail
 echo decrypting the ssh key ...
 
 openssl aes-256-cbc \
-  -K "$encrypted_51a4a26b95d4_key" -iv "$encrypted_51a4a26b95d4_iv" \
+  -K "$encrypted_92725ca94bf5_key" -iv "$encrypted_92725ca94bf5_iv" \
   -in deploy-key.enc -out ~/.ssh/id_rsa -d
 chmod 0700 ~/.ssh
 chmod 0600 ~/.ssh/id_rsa
