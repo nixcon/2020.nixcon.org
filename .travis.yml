@@ -1,0 +1,7 @@
+language: nix
+script: nix-build
+deploy:
+  provider: script
+  script: ./travis-deployment/deploy-to-gh-pages.sh
+  skip_cleanup: true
+  branch: master
