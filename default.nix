@@ -20,6 +20,7 @@ pkgs.stdenv.mkDerivation {
     (haskellPackages.ghcWithPackages (ps: with ps; [
       hakyll
       hakyll-images
+      hakyll-sass
     ]))
   ];
 
