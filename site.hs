@@ -51,14 +51,10 @@ main = hakyll $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "css/*.sass" $ do
+    match "css/*.scss" $ do
         route $ setExtension "css"
         let compressCssItem = fmap compressCss
         compile (compressCssItem <$> sassCompiler)
-
-    match "css/*" $ do
-        route   idRoute
-        compile compressCssCompiler
     
     match (fromList ["code-of-conduct.md"]) $ do
         route   $ setExtension "html"
