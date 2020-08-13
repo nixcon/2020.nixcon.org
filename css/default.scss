@@ -1,5 +1,34 @@
 // TODO: move fonts to local folder
-@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500;700&family=Montserrat:wght@400;700&display=swap');
+/* hind-madurai-regular - latin */
+@font-face {
+  font-family: 'Hind Madurai';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Hind Madurai Regular'), local('HindMadurai-Regular'),
+       url('../fonts/hind-madurai/hind-madurai-v5-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/hind-madurai/hind-madurai-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* hind-madurai-600 - latin */
+@font-face {
+  font-family: 'Hind Madurai';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Hind Madurai SemiBold'), local('HindMadurai-SemiBold'),
+       url('../fonts/hind-madurai/hind-madurai-v5-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/hind-madurai/hind-madurai-v5-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* montserrat-700 - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'),
+       url('../fonts/montserrat/montserrat-v14-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/montserrat/montserrat-v14-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
 
 $blue: #7EBAE4;
 $blue-dark: #5277C3;
