@@ -1,0 +1,89 @@
+// TODO: move fonts to local folder
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500;700&family=Montserrat:wght@400;700&display=swap');
+
+$blue: #7EBAE4;
+$blue-dark: #5277C3;
+$white: #FAFAFA;
+$black: #404040;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $white;
+  color: $black;
+  font-family: 'Hind Madurai', sans-serif;
+  font-size: 16px;
+  line-height: 1.65rem;
+  font-weight: normal;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Montserrat', sans-serif;
+  margin: 2.75rem 0 1.05rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.052em;
+}
+
+h2 {font-size: 2.441em;}
+
+h3 {font-size: 1.953em;}
+
+h4 {font-size: 1.563em;}
+
+h5 {font-size: 1.25em;}
+
+small, .text_small {font-size: 0.8em;}
+
+a {
+  color: $blue-dark;
+}
+
+nav {
+  background: $white;
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  border-radius: 2rem;
+  overflow: hidden;
+  margin: 1rem auto;
+  ul { 
+    list-style-type: none;
+    margin: 0 1rem;
+    width: auto;
+    > li {
+      float: left;
+      > a {
+        display: block;
+        text-decoration: none;
+        margin: 0.5rem 0;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        &:hover {
+          background-color: $blue-dark;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1280px;
+}
+
+footer {
+  background-color: $blue-dark;
+  color: $white;
+  padding: 1rem;
+  a {color: $white;}
+}
