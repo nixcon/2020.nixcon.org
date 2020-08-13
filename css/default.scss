@@ -96,6 +96,13 @@ main {
   }
 }
 
+.section-hero {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .hero {
   width: fit-content;
   box-sizing: border-box;
@@ -132,7 +139,15 @@ main {
 }
 
 svg {
-  vertical-align:top;
+  &.divider {
+    width: 100%;
+    &.divider-top {
+      vertical-align:top;
+    }
+    &.divider-bottom {
+      vertical-align:bottom;
+    }
+  }
 }
 
 section {
