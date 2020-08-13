@@ -87,3 +87,62 @@ footer {
   padding: 1rem;
   a {color: $white;}
 }
+
+main {
+  ul, ol {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.hero {
+  width: fit-content;
+  box-sizing: border-box;
+  margin: auto;
+  display: grid;
+  color: $blue-dark;
+  grid-template-columns: min-content max-content;
+  .hero-text {
+    h1 {
+      font-size: 6rem;
+      margin-bottom: 0;
+    }
+    .hero-text-sub {
+      font-size: 2rem;
+    }
+    .hero-text-badge {
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
+      margin-left: -1rem;
+      margin-top: 1.05rem;
+      border-radius: 2rem;
+      background-color: $blue-dark;
+      width: max-content;
+      color: $white;
+    }
+  }
+  .hero-logo {
+    align-items: center;
+    img {
+      height: 6rem;
+      width: 6rem;
+    }
+  }
+}
+
+svg {
+  vertical-align:top;
+}
+
+section {
+  display: inline-block;
+  width: 100%;
+  &.section-dark {
+    background-color: $blue-dark;
+    color: $white;
+    a {
+      color: $white;
+    }
+  }
+}
