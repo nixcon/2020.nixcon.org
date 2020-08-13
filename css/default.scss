@@ -34,6 +34,7 @@ $blue: #7EBAE4;
 $blue-dark: #5277C3;
 $white: #FAFAFA;
 $black: #404040;
+$mobile-breakpoint: 1080px;
 
 * {
   margin: 0;
@@ -78,18 +79,31 @@ a {
 }
 
 nav {
+  @media (max-width: $mobile-breakpoint) {
+    box-shadow: none;
+    margin: 0;
+  }
   background: $white;
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
   border-radius: 2rem;
   overflow: hidden;
   margin: 1rem auto;
-  ul { 
+  ul {
+    @media (max-width: $mobile-breakpoint) {
+      margin: 0;
+    }
     list-style-type: none;
     margin: 0 1rem;
     width: auto;
     > li {
+      @media (max-width: $mobile-breakpoint) {
+        float: none;
+      }
       float: left;
       > a {
+        @media (max-width: $mobile-breakpoint) {
+          margin: 0;
+        }
         display: block;
         text-decoration: none;
         margin: 0.5rem 0;
@@ -105,9 +119,12 @@ nav {
 }
 
 .container {
+  @media (max-width: $mobile-breakpoint) {
+    padding: 0 0.5rem;
+  }
   margin-left: auto;
   margin-right: auto;
-  max-width: 1280px;
+  max-width: $mobile-breakpoint;
 }
 
 footer {
@@ -126,7 +143,12 @@ main {
 }
 
 .section-hero {
-  min-height: 60vh;
+  @media (min-width: $mobile-breakpoint) {
+    min-height: 60vh;
+  }
+  @media (max-width: $mobile-breakpoint) {
+    margin: 5rem 0;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,16 +160,28 @@ main {
   margin: auto;
   display: grid;
   color: $blue-dark;
+  @media (max-width: $mobile-breakpoint + 100) {
+    grid-template-columns: 1fr;
+  }
   grid-template-columns: min-content max-content;
   .hero-text {
     h1 {
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 3rem;
+      }
       font-size: 6rem;
       margin-bottom: 0;
     }
     .hero-text-sub {
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 1.5rem;
+      }
       font-size: 2rem;
     }
     .hero-text-badge {
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 1.25rem;
+      }
       font-size: 1.5rem;
       padding: 0.5rem 1rem;
       margin-left: -1rem;
@@ -169,12 +203,16 @@ main {
 
 svg {
   &.divider {
-    width: 100%;
+    display: block;
+    width: 100%!important;
+    left: 0!important;
+    top: 0!important;
     &.divider-top {
       vertical-align:top;
+      margin-bottom: -1px;
     }
     &.divider-bottom {
-      vertical-align:bottom;
+      vertical-align: bottom;
     }
   }
 }
@@ -183,6 +221,12 @@ section {
   display: inline-block;
   width: 100%;
   &.section-dark {
+    @media (max-width: $mobile-breakpoint + 100) {
+      padding: 1rem 0;
+    }
+    :first-child {
+      margin-top: 0;
+    }
     background-color: $blue-dark;
     color: $white;
     a {
