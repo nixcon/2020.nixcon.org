@@ -149,6 +149,14 @@ nav {
   max-width: $mobile-breakpoint;
 }
 
+.c-media-and-text {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 footer {
   background-color: $blue-dark;
   color: $white;
