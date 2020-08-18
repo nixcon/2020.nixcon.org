@@ -1,0 +1,266 @@
+// TODO: move fonts to local folder
+/* hind-madurai-regular - latin */
+@font-face {
+  font-family: 'Hind Madurai';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Hind Madurai Regular'), local('HindMadurai-Regular'),
+       url('../fonts/hind-madurai/hind-madurai-v5-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/hind-madurai/hind-madurai-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* hind-madurai-600 - latin */
+@font-face {
+  font-family: 'Hind Madurai';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Hind Madurai SemiBold'), local('HindMadurai-SemiBold'),
+       url('../fonts/hind-madurai/hind-madurai-v5-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/hind-madurai/hind-madurai-v5-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* montserrat-700 - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'),
+       url('../fonts/montserrat/montserrat-v14-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/montserrat/montserrat-v14-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+
+$blue: #7EBAE4;
+$blue-dark: #5277C3;
+$white: #FAFAFA;
+$black: #404040;
+$mobile-breakpoint: 1080px;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $white;
+  color: $black;
+  font-family: 'Hind Madurai', sans-serif;
+  font-size: 16px;
+  line-height: 1.65rem;
+  font-weight: normal;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Montserrat', sans-serif;
+  margin: 2.75rem 0 1.05rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.052em;
+}
+
+h2 {font-size: 2.441em;}
+
+h3 {font-size: 1.953em;}
+
+h4 {font-size: 1.563em;}
+
+h5 {font-size: 1.25em;}
+
+small, .text_small {font-size: 0.8em;}
+
+a {
+  color: $blue-dark;
+}
+
+nav {
+  @media (max-width: $mobile-breakpoint) {
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+  }
+  background: $white;
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  border-radius: 2rem;
+  overflow: hidden;
+  margin: 1rem auto;
+  .mobile-control {
+    @media (min-width: $mobile-breakpoint) {
+        display: none;
+    }
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 100%;
+    button {
+      background-color: $white;
+      color: $blue-dark;
+      cursor: pointer;
+      width: 100%;
+      border: none;
+      padding: 1rem;
+      &.btn-dark {
+        background-color: $blue-dark;
+        color: $white;
+      }
+    }
+  }
+  ul {
+    @media (max-width: $mobile-breakpoint) {
+      margin: 0;
+      display: none;
+    }
+    list-style-type: none;
+    margin: 0 1rem;
+    width: auto;
+    > li {
+      @media (max-width: $mobile-breakpoint) {
+        float: none;
+      }
+      float: left;
+      > a {
+        @media (max-width: $mobile-breakpoint) {
+          margin: 0;
+        }
+        display: block;
+        text-decoration: none;
+        margin: 0.5rem 0;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        &:hover {
+          background-color: $blue-dark;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  @media (max-width: $mobile-breakpoint) {
+    padding: 0 0.5rem;
+  }
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $mobile-breakpoint;
+}
+
+.c-media-and-text {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer {
+  background-color: $blue-dark;
+  color: $white;
+  padding: 1rem;
+  a {color: $white;}
+}
+
+main {
+  ul, ol {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.section-hero {
+  @media (min-width: $mobile-breakpoint) {
+    min-height: 60vh;
+  }
+  @media (max-width: $mobile-breakpoint) {
+    margin: 5rem 0;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero {
+  width: fit-content;
+  box-sizing: border-box;
+  margin: auto;
+  display: grid;
+  color: $blue-dark;
+  @media (max-width: $mobile-breakpoint + 100) {
+    grid-template-columns: 1fr;
+  }
+  grid-template-columns: min-content max-content;
+  .hero-text {
+    h1 {
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 3rem;
+      }
+      font-size: 6rem;
+      margin-bottom: 0;
+    }
+    .hero-text-sub {
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 1.5rem;
+      }
+      font-size: 2rem;
+    }
+    .hero-text-badge {
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 1.25rem;
+      }
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
+      margin-left: -1rem;
+      margin-top: 1.05rem;
+      border-radius: 2rem;
+      background-color: $blue-dark;
+      width: max-content;
+      color: $white;
+    }
+  }
+  .hero-logo {
+    align-items: center;
+    img {
+      height: 6rem;
+      width: 6rem;
+    }
+  }
+}
+
+svg {
+  &.divider {
+    display: block;
+    width: 100%!important;
+    left: 0!important;
+    top: 0!important;
+    &.divider-top {
+      vertical-align:top;
+      margin-bottom: -1px;
+    }
+    &.divider-bottom {
+      vertical-align: bottom;
+    }
+  }
+}
+
+section {
+  display: inline-block;
+  width: 100%;
+  &.section-dark {
+    @media (max-width: $mobile-breakpoint + 100) {
+      padding: 1rem 0;
+    }
+    :first-child {
+      margin-top: 0;
+    }
+    background-color: $blue-dark;
+    color: $white;
+    a {
+      color: $white;
+    }
+  }
+}

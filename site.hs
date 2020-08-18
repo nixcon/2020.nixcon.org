@@ -8,16 +8,12 @@ import Hakyll.Images        ( loadImage
                             , compressJpgCompiler
                             , scaleImageCompiler
                             )
-
+import Hakyll.Web.Sass      ( sassCompiler )
 
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
     match "favicon.png" $ do
-        route idRoute
-        compile copyFileCompiler
-
-    match "materialize/**/*" $ do
         route idRoute
         compile copyFileCompiler
 
@@ -51,10 +47,11 @@ main = hakyll $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "css/*" $ do
-        route   idRoute
-        compile compressCssCompiler
-
+    match "css/*.scss" $ do
+        route $ setExtension "css"
+        let compressCssItem = fmap compressCss
+        compile (compressCssItem <$> sassCompiler)
+    
     match (fromList ["code-of-conduct.md"]) $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
