@@ -1,44 +1,28 @@
-function emailReplace (elems){
-    var m = "orgateam" + String.fromCharCode(64) + "nixcon.org";
-    elems.attr("href", "mailto:" + m)
-    elems.text(m)
+function emailReplace(elems) {
+  var m = "orgateam" + String.fromCharCode(64) + "nixcon.org";
+  elems.getAttribute("href", "mailto:" + m)
+  elems.textContent = m
 }
 
-$( document ).ready(function(){
-    $(".button-collapse").sideNav();
-    emailReplace($("a.contact-email"));
-});
-
-
-
-// handle Google Maps stuff
-function initialize(mapId, lat, lng) {
-    var mapCanvas = document.getElementById(mapId);
-    var mapOptions = {
-        center: new google.maps.LatLng(lat, lng),
-        zoom: 14,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(mapCanvas, mapOptions);
-
-    var styles = [
-        {
-            stylers: [
-                { hue: "#2196f3" },
-                { saturation: -50 }
-            ]
-        },{
-            featureType: "road",
-            elementType: "geometry",
-            stylers: [
-                { lightness: 100 },
-                { visibility: "simplified" }
-            ]
-        }
-    ];
-
-    var marker = new google.maps.Marker({
-        position: {lat: lat, lng: lng},
-        map: map
-    });
+function ready(fn) {
+  if (document.readyState != 'loading') {
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
 }
+
+function toggleNav() {
+  var x = document.getElementById("nav");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+function initSite() {
+  document.querySelectorAll("a.contact-email").forEach(e => emailReplace(e));
+}
+
+ready(initSite);
