@@ -131,6 +131,7 @@ nav {
         margin: 0.5rem 0;
         padding: 0.5rem 1rem;
         border-radius: 2rem;
+        transition: 0.1s;
         &:hover {
           background-color: $blue-dark;
           color: white;
