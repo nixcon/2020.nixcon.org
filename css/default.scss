@@ -76,6 +76,14 @@ small, .text_small {font-size: 0.8em;}
 
 a {
   color: $blue-dark;
+  &.btn {
+    display: inline-block;
+    background-color: $blue-dark;
+    color: white;
+    text-decoration: none;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+  }
 }
 
 nav {
@@ -272,4 +280,12 @@ section {
       color: $white;
     }
   }
+  &.section-center {
+    text-align: center;
+  }
+}
+
+.text-prominent {
+  font-weight: bold;
+  font-size: 1.5rem;
 }
