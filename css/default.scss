@@ -76,6 +76,14 @@ small, .text_small {font-size: 0.8em;}
 
 a {
   color: $blue-dark;
+  &.btn {
+    display: inline-block;
+    background-color: $blue-dark;
+    color: white;
+    text-decoration: none;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+  }
 }
 
 nav {
@@ -240,9 +248,10 @@ svg {
     top: 0!important;
     &.divider-top {
       vertical-align:top;
-      margin-bottom: -1px;
+      margin-bottom: -2px;
     }
     &.divider-bottom {
+      margin-top: -2px;
       vertical-align: bottom;
     }
   }
@@ -251,6 +260,13 @@ svg {
 section {
   display: inline-block;
   width: 100%;
+  &.section-white {
+    // still space for improvement
+    padding: 3rem 0;
+    :first-child {
+      margin-top: 0;
+    }
+  }
   &.section-dark {
     @media (max-width: $mobile-breakpoint + 100) {
       padding: 1rem 0;
@@ -264,4 +280,12 @@ section {
       color: $white;
     }
   }
+  &.section-center {
+    text-align: center;
+  }
+}
+
+.text-prominent {
+  font-weight: bold;
+  font-size: 1.5rem;
 }
