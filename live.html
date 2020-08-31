@@ -1,0 +1,13 @@
+<section class="section-dark">
+    <div class="container">
+        <h3>NixCon Live</h3>
+        <video id="player" controls></video>
+    </div>
+</section>
+
+<script src="/js/dash.mediaplayer.min.js"></script>
+<script>
+    var url = "https://dash01.nixcon.net/dash/main.mpd";
+    var player = dashjs.MediaPlayer().create();
+    player.initialize(document.getElementById("player"), url, false);
+</script>
