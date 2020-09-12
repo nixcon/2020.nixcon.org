@@ -246,6 +246,13 @@ main {
   }
 }
 
+#irc-widget {
+  background-color: transparent;
+  border: none;
+  height: 500px;
+  width: 100%;
+}
+
 svg {
   &.divider {
     display: block;
