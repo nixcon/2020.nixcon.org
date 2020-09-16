@@ -11,9 +11,6 @@
   <link type="text/css" rel="stylesheet" href="css/default.css" media="screen,projection" />
   <script type="text/javascript" src="js/index.js" async></script>
   <link rel="shortcut icon" type="image/png" href="./favicon.png" />
-  <!--<link rel="stylesheet" type="text/css" href="https://tickets.nixcon.org/nixcon/2019/widget/v1.css">-->
-  <!-- following script gave a timeout -->
-  <!--<script type="text/javascript" src="https://tickets.nixcon.org/widget/v1.en.js" async></script> -->
 </head>
 
 <body>
@@ -39,7 +36,7 @@
         <a href="./#location">Location</a>
       </li>
       <li>
-        <a href="./#registration">Registration</a>
+        <a href="./#sponsors">Sponsors</a>
       </li>
       <!--<li>-->
       <!--<a href="https://tickets.nixcon.org/nixcon/2019/page/faq/" target="_blank">FAQ</a>-->
@@ -47,21 +44,12 @@
       <li>
         <a href="./#contact">Contact us</a>
       </li>
-      <!--<li>-->
-      <!--<a href="/#sponsors">Sponsors</a>-->
-      <!--</li>-->
-      <!-- <li>
-        <a href="https://twitter.com/nixconf">
-          <i class="fa fa-twitter fa-fw"></i>
-        </a>
-      </li> -->
     </ul>
     </div>
   </nav>
-  <!-- <a href="https://github.com/nixcon/2020.nixcon.org">
-    <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 9000;" src="images/fork-me-on-github.png"
-      alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
-  </a> -->
+  <a class="ribbon" href="https://github.com/nixcon/2020.nixcon.org">
+    <img class="ribbon" style="position: absolute; top: 0; right: 0; border: 0; z-index: 9000;" src="images/fork-me-on-github.png" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png">
+  </a>
   <main>
     <!-- TODO remove svgs and embed them in CSS-->
 
@@ -163,9 +151,16 @@
 <section id="Location" class="section-white">
     <div class="container">
         <h3>Location</h3>
-        <address>
-            Online
-        </address>
+        <p>
+            NixCon takes place online this year.
+            Talks will be streamed live here and also viewable on youtube. Links to the
+            viewing URLS will be posted here as we approach the event.
+        </p>
+        <p>
+            There is no registration and participation is free.
+        <br>
+            If you wish to contribute financially, consider supporting <a href="https://opencollective.com/nixos">the NixOS Foundation</a>.
+        </p>
     </div>
 </section>
 
@@ -173,26 +168,23 @@
     <path d="M1920 31.7527C1638.36 11.5721 1310.26 0 960 0C609.741 0 281.642 11.5721 0 31.7527V50H1920V31.7527Z" fill="#5277C3"></path>
 </svg>
 
-<section id="registration" class="section-dark">
+<section id="sponsors" class="section-dark">
     <div class="container">
-        <h3>Registration</h3>
+        <h3>Sponsors</h3>
         <p>
-            *not open yet*
+            Thank you to our wonderful and supportive sponsors! Whose contributtions nourished this online edition of NixCon.
         </p>
-        <!--<pretix-widget event="https://tickets.nixcon.org/nixcon/2020/"></pretix-widget>-->
-        <noscript>
-            <div class="pretix-widget">
-                <div class="pretix-widget-info-message">
-                    *not open yet* JavaScript is disabled in your browser. To access our ticket shop without
-                    JavaScript, please
-                    <a target="_blank" rel="noopener" href="https://tickets.nixcon.org/nixcon/2020/">click here</a>.
-                </div>
-            </div>
-        </noscript>
-        <p>
-            <!--If you have any questions see our <a href="https://tickets.nixcon.org/nixcon/2020/page/faq/" target="_blank">FAQ</a> or .-->
-            <a href="./#contact">contact us</a>
-        </p>
+        <a href="sponsoring.html">Learn about sponsoring.</a>
+        <!--<ul class="grid gold">-->
+            <!--<li>-->
+                <!--<div class="card-title">-->
+                <!--Test 1-->
+                <!--</div>-->
+                <!--<div class="card-body">-->
+                    <!--foo-->
+                <!--</div>-->
+            <!--</li>-->
+        <!--</ul>-->
     </div>
 </section>
 
@@ -214,12 +206,12 @@
             For any questions, send us an email to
             <a class="contact-email" href="mail:orgateam(at)nixcon.org">orgateam (at) nixcon.org</a>
             .
+            We will respond within 24h.
         </p>
-        <!--  We will respond within 24h. -->
-        <!--  Ofc we can always add this ^ back in, don't want to publish a promise I cannot keep yet -->
 
         <p>The organisers also hang on #nixcon on FreeNode:</p>
-        <iframe allowtransparency="true" class="col s12 m12" frameborder="0" height="500" scrolling="no" src="https://webchat.freenode.net?channels=%23nixcon&uio=MTE9MjE131"></iframe>
+        <!-- remove the scrollbar -->
+        <iframe title="Freenode.net webchat IRC widget" id="irc-widget" src="https://webchat.freenode.net?channels=%23nixcon&uio=MTE9MjE131"></iframe>
     </div>
 </section>
   </main>
@@ -237,6 +229,11 @@
       <a href="http://nixcon2018.org/">2018</a> -
       <a href="http://nixcon2017.org/">2017</a> -
       <a href="https://nixos.github.io/nixcon/2015/index.html">2015</a>
+      </p>
+      <p>
+      <a href="https://github.com/nixcon/2020.nixcon.org">
+      Edit this site on github
+      </a>
       </p>
     </div>
   </footer>
