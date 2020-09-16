@@ -1,0 +1,112 @@
+//@import "math";
+@debug percentage(0.2);
+@debug unit(300px);
+
+// todo dry.
+$fg: #404040;
+$bg: #F2F2F2;
+//
+// Tier colors
+$bronze: #AD8A56;
+$silver: #C0C0C0;
+$gold: #D4AF37;
+$platinum: #E5E4E2;
+
+// data
+$tiers: (
+  bronze: (
+    'color': $bronze,
+    'scale': 1.309
+  ),
+  silver: (
+    'color': $silver,
+    'scale': 1.618,
+    'max-columns': 4
+  ),
+  gold: (
+    'color': $gold,
+    'scale': 1.927,
+    'max-columns': 2
+  ),
+  platinum: (
+    'color': $platinum,
+    'max-columns': 1,
+    'scale': 2.237
+  )
+);
+// could calculate scale inside mixin, using 'relative magnitude'
+
+// limit max-width?
+//$base-width: 325px;
+
+// generate grid customizations for the tiers
+@mixin cards($name, $color: #FF0000, $scale: 1, $max-columns: 0) {
+
+  @debug $name;
+  @debug $scale;
+  @debug 1px * $scale;
+  @debug 1rem * $scale;
+
+  @if $max-columns == 0 {
+    .grid.#{$name} {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  } @else {
+    .grid.#{$name} {
+      grid-template-columns: repeat(#{$max-columns}, minmax(200px, 1fr))!important;
+    }
+  }
+
+  .card.#{$name}, .#{$name} > li {
+    margin-top: 0.7rem * $scale;
+    border-color: $color;
+  }
+
+  .#{$name} > .card-title, .#{$name} > li > .card-title {
+    font-size: #{$scale}em;
+    padding: 0.6rem * $scale;
+  }
+
+  .#{$name} > .card-body, .#{$name} > li > .card-body {
+    border-color: $color;
+    border-top: solid $color
+  }
+}
+
+@each $name, $attr in $tiers {
+  @include cards($name, $attr...)
+}
+
+.card.platinum {
+  border-width: thick;
+}
+
+.grid {
+  list-style: none;
+  background: $bg;
+  color: $fg;
+  //margin: 2em;
+  display: grid;
+  gap: 1rem;
+  > li {
+    border-radius: 0.2rem;
+    border-style: solid;
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    > h4 {
+      padding: 0.4rem;
+    }
+    > .body {
+      padding: 0.4rem;
+      //border: #0A0AFF;
+      //border-style: solid;
+    }
+  }
+}
+
+img > .responsive-img {
+    max-width: 100%;
+    height: auto;
+}
+//body > ul:nth-child(3) > li:nth-child(2) > div.image > img

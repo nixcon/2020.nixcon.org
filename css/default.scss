@@ -1,3 +1,5 @@
+@import 'tiers';
+
 // TODO: move fonts to local folder
 /* hind-madurai-regular - latin */
 @font-face {
@@ -87,7 +89,7 @@ a {
 }
 
 nav {
-  @media (max-width: $mobile-breakpoint) {
+  @media screen and (max-width: $mobile-breakpoint) {
     box-shadow: none;
     border-radius: 0;
     margin: 0;
@@ -98,7 +100,7 @@ nav {
   overflow: hidden;
   margin: 1rem auto;
   .mobile-control {
-    @media (min-width: $mobile-breakpoint) {
+    @media screen and (min-width: $mobile-breakpoint + 1) {
         display: none;
     }
     display: grid;
@@ -118,7 +120,7 @@ nav {
     }
   }
   ul {
-    @media (max-width: $mobile-breakpoint) {
+    @media screen and (max-width: $mobile-breakpoint) {
       margin: 0;
       display: none;
     }
@@ -126,12 +128,12 @@ nav {
     margin: 0 1rem;
     width: auto;
     > li {
-      @media (max-width: $mobile-breakpoint) {
+      @media screen and (max-width: $mobile-breakpoint) {
         float: none;
       }
       float: left;
       > a {
-        @media (max-width: $mobile-breakpoint) {
+        @media screen and (max-width: $mobile-breakpoint) {
           margin: 0;
         }
         display: block;
@@ -149,8 +151,14 @@ nav {
   }
 }
 
+.ribbon {
+  @media screen and (max-width: $mobile-breakpoint) {
+    display: none;
+  }
+}
+
 .container {
-  @media (max-width: $mobile-breakpoint) {
+  @media screen and (max-width: $mobile-breakpoint) {
     padding: 0 0.5rem;
   }
   margin-left: auto;
@@ -185,7 +193,7 @@ main {
   @media (min-width: $mobile-breakpoint) {
     min-height: 60vh;
   }
-  @media (max-width: $mobile-breakpoint) {
+  @media screen and (max-width: $mobile-breakpoint) {
     margin: 5rem 0;
   }
   display: flex;
@@ -199,26 +207,26 @@ main {
   margin: auto;
   display: grid;
   color: $blue-dark;
-  @media (max-width: $mobile-breakpoint + 100) {
+  @media screen and (max-width: $mobile-breakpoint + 100) {
     grid-template-columns: 1fr;
   }
   grid-template-columns: min-content max-content;
   .hero-text {
     h1 {
-      @media (max-width: $mobile-breakpoint) {
+      @media screen and (max-width: $mobile-breakpoint) {
         font-size: 3rem;
       }
       font-size: 6rem;
       margin-bottom: 0;
     }
     .hero-text-sub {
-      @media (max-width: $mobile-breakpoint) {
+      @media screen and (max-width: $mobile-breakpoint) {
         font-size: 1.5rem;
       }
       font-size: 2rem;
     }
     .hero-text-badge {
-      @media (max-width: $mobile-breakpoint) {
+      @media screen and (max-width: $mobile-breakpoint) {
         font-size: 1.25rem;
       }
       font-size: 1.5rem;
@@ -238,6 +246,13 @@ main {
       width: 6rem;
     }
   }
+}
+
+#irc-widget {
+  background-color: transparent;
+  border: none;
+  height: 500px;
+  width: 100%;
 }
 
 svg {
@@ -268,7 +283,7 @@ section {
     }
   }
   &.section-dark {
-    @media (max-width: $mobile-breakpoint + 100) {
+    @media screen and (max-width: $mobile-breakpoint + 100) {
       padding: 1rem 0;
     }
     :first-child {
