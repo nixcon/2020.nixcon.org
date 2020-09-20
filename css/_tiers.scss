@@ -5,12 +5,26 @@
 // todo dry.
 $fg: #404040;
 $bg: #F2F2F2;
+$flat: #EEE;
 //
 // Tier colors
 $bronze: #AD8A56;
 $silver: #C0C0C0;
 $gold: #D4AF37;
 $platinum: #E5E4E2;
+
+// another DRY
+$mobile-breakpoint: 1080px;
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sponsoring ul {
+  list-style: none;
+}
+
 
 // data
 $tiers: (
@@ -21,7 +35,7 @@ $tiers: (
   silver: (
     'color': $silver,
     'scale': 1.618,
-    'max-columns': 4
+    'max-columns': 3
   ),
   gold: (
     'color': $gold,
@@ -46,20 +60,46 @@ $tiers: (
   @debug $scale;
   @debug 1px * $scale;
   @debug 1rem * $scale;
+  $top-margin: 0.7rem * $scale;
+  $side-margin: 0.35rem * $scale;
 
   @if $max-columns == 0 {
     .grid.#{$name} {
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
+
+    .#{$name} > li {
+      margin-top: 0.7rem * $scale!important;
+      border: none;
+    }
   } @else {
     .grid.#{$name} {
-      grid-template-columns: repeat(#{$max-columns}, minmax(200px, 1fr))!important;
+      grid-template-columns: repeat(#{$max-columns}, minmax(200px, 1fr));
+    }
+    .#{$name} > li {
+      margin: $top-margin $side-margin!important;
+      border-color: $color;
+
+      @if $name == platinum {
+        background-color: #fff;
+      } @else {
+        background-color: scale-color($color, $lightness: 20%);
+      }
     }
   }
 
-  .card.#{$name}, .#{$name} > li {
-    margin-top: 0.7rem * $scale;
+  .#{$name} > li {
+    max-width: 44vw * $scale;
+  }
+
+  .card.#{$name} {
+    margin-top: 0.7rem * $scale!important;
     border-color: $color;
+    background-color: scale-color($color, $lightness: 20%);
+  }
+
+  .#{$name} > .card-image {
+    background-color: $flat;
   }
 
   .#{$name} > .card-title, .#{$name} > li > .card-title {
@@ -73,44 +113,37 @@ $tiers: (
   }
 }
 
-@each $name, $attr in $tiers {
-  @include cards($name, $attr...)
-}
-
-.card.platinum {
-  border-width: thick;
-}
-
-#sponsoring ul {
-  list-style: none;
-}
-
 .grid {
   list-style: none;
   background: $bg;
   color: $fg;
-  //margin: 2em;
+  @media screen and (max-width: $mobile-breakpoint){
+      grid-template-columns: minmax(200px, 1fr)!important;
+      margin: unset;
+      align-items: center;
+      justify-content: center;
+  }
   display: grid;
   gap: 1rem;
   > li {
+    @media screen and (max-width: $mobile-breakpoint){
+      align-items: center;
+      justify-content: center;
+    }
     border-radius: 0.2rem;
     border-style: solid;
     padding: 0.2rem;
     display: flex;
     flex-direction: column;
-    > h4 {
-      padding: 0.4rem;
-    }
-    > .body {
-      padding: 0.4rem;
-      //border: #0A0AFF;
-      //border-style: solid;
-    }
+    align-self: center;
+    justify-self: center;
   }
 }
 
-img > .responsive-img {
-    max-width: 100%;
-    height: auto;
+@each $name, $attr in $tiers {
+  @include cards($name, $attr...)
 }
-//body > ul:nth-child(3) > li:nth-child(2) > div.image > img
+
+.card.platinum, .platinum > li {
+  border-width: thick;
+}
