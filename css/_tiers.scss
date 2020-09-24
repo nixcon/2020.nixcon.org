@@ -53,6 +53,9 @@ $card-break-2: 900px; // 2 column (except plat)
   }
 }
 
+.sponsor-card a {
+  color: $fg!important;
+}
 
 .platinum .sponsor-card {
   border-top: solid $platinum;
