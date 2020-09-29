@@ -89,3 +89,43 @@ $card-break-2: 900px; // 2 column (except plat)
     }
   }
 }
+
+// 'sponsoring' specific styling
+
+// remove list style specifically on
+// sponsoring info requirements listing
+.unlist {
+  list-style: none;
+}
+
+#sponsoring .sponsors {
+  grid-template-columns: minmax(300px, 1fr)!important;
+}
+
+.platinum.sponsor-card {
+  h4 {
+    font-size: 1.4em;
+  }
+  border: thick solid $platinum;
+}
+
+.gold.sponsor-card {
+  h4 {
+    font-size: 1.3em;
+  }
+  border: solid $gold;
+}
+
+.silver.sponsor-card {
+  h4 {
+    font-size: 1.2em;
+  }
+  border: solid $silver;
+}
+
+.bronze.sponsor-card {
+  h4 {
+    font-size: 1.1em;
+  }
+  border: solid $bronze;
+}
