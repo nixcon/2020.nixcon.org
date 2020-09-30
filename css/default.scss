@@ -309,3 +309,18 @@ section {
     width: 100%;
     height: auto;
 }
+
+// make pretalx widget readable
+// it appears in a dark section but itself is light in color so light text was not readable
+.pretalx-tabs .pretalx-tab label,
+.pretalx-schedule-day-room-header {
+   color: $black;
+}
+
+.pretalx-tab {
+  box-shadow: none!important;
+}
+
+.pretalx-tab.active {
+  box-shadow: 0 0 0.5em $blue!important;
+}
