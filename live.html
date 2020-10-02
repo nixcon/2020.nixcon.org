@@ -7,7 +7,12 @@
 
 <script src="/js/dash.mediaplayer.min.js"></script>
 <script>
-    var url = "https://dash.nixcon.net/dash/main.mpd";
-    var player = dashjs.MediaPlayer().create();
-    player.initialize(document.getElementById("player"), url, false);
+    var baseUrl = "https://dash.nixcon.net/dash/";
+    var playerElem = document.getElementById("player");
+    if (('WebkitMediaSource' in window) || ('MediaSource' in window)) {
+        var player = dashjs.MediaPlayer().create();
+        player.initialize(playerElem, baseUrl + "main.mpd", false);
+    } else {
+        playerElem.src = baseUrl + "master.m3u8";
+    }
 </script>
