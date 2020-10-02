@@ -1,7 +1,7 @@
 <section class="section-dark">
     <div class="container">
         <h3>NixCon Live</h3>
-        <video id="player" controls></video>
+        <video src="https://dash.nixcon.net/dash/master.m3u8" id="player" controls></video>
     </div>
 </section>
 
@@ -12,7 +12,5 @@
     if (('WebkitMediaSource' in window) || ('MediaSource' in window)) {
         var player = dashjs.MediaPlayer().create();
         player.initialize(playerElem, baseUrl + "main.mpd", false);
-    } else {
-        playerElem.src = baseUrl + "master.m3u8";
     }
 </script>
