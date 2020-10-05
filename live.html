@@ -12,5 +12,8 @@
     if (('WebkitMediaSource' in window) || ('MediaSource' in window)) {
         var player = dashjs.MediaPlayer().create();
         player.initialize(playerElem, baseUrl + "main.mpd", false);
+        player.updateSettings({
+            lowLatencyEnabled: true
+        });
     }
 </script>
