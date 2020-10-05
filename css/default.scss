@@ -324,3 +324,8 @@ section {
 .pretalx-tab.active {
   box-shadow: 0 0 0.5em $blue!important;
 }
+
+// bandwidth indicator on the live page
+#bandwidth-control {
+  float: right;
+}
