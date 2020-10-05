@@ -2,6 +2,7 @@
     <div class="container">
         <h3>NixCon Live</h3>
         <video src="https://dash.nixcon.net/dash/master.m3u8" id="player" controls></video>
+        <div id="bandwidth-control"></div>
     </div>
 </section>
 
@@ -14,6 +15,47 @@
         player.initialize(playerElem, baseUrl + "main.mpd", false);
         player.updateSettings({
             lowLatencyEnabled: true
+        });
+
+        var options = [
+            { name: "auto", autoSwitch: true },
+            { name: "1080p", autoSwitch: false, index: 2 },
+            { name: "720p", autoSwitch: false, index: 1 },
+            { name: "480p", autoSwitch: false, index: 0 },
+        ];
+
+        select = document.createElement("select");
+
+        select.addEventListener("change", function(e) {
+          var option = options[select.value];
+
+          player.updateSettings({
+            streaming: { abr: { autoSwitchBitrate: { video: option.autoSwitch } } }
+          });
+
+          if (!option.autoSwitch) {
+              player.setQualityFor('video', option.index);
+          }
+        });
+
+        for (var i = 0; i < options.length; i++) {
+            var option = document.createElement("option");
+            option.value = i;
+            option.innerText = options[i].name;
+
+            select.appendChild(option);
+        }
+
+        document.getElementById("bandwidth-control").appendChild(select);
+
+        player.on(dashjs.MediaPlayer.events.QUALITY_CHANGE_REQUESTED, function() {
+            var currentMode = player.getQualityFor("video");
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].index == currentMode) {
+                    select.options[0].innerText = `auto (${options[i].name})`;
+                    break;
+                }
+            }
         });
     }
 </script>
