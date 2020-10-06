@@ -39,6 +39,9 @@ $card-break-2: 900px; // 2 column (except plat)
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  a {
+    color: $fg!important;
+  }
   .sponsor-title {
     display: flex;
     justify-content: center;
@@ -51,10 +54,9 @@ $card-break-2: 900px; // 2 column (except plat)
   .sponsor-description {
     margin: 0.5rem;
   }
-}
-
-.sponsor-card a {
-  color: $fg!important;
+  .card-body {
+    padding: 1rem;
+  }
 }
 
 .platinum .sponsor-card {
