@@ -38,7 +38,7 @@ $card-break-2: 900px; // 2 column (except plat)
   color: $fg;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
   a {
     color: $fg!important;
   }
