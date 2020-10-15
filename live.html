@@ -52,7 +52,10 @@
     <section class="section-dark">
     <div class="container">
         <h3>NixCon Live</h3>
-        <video src="https://dash.nixcon.net/dash/master.m3u8" id="player" controls></video>
+        <div id="player-container">
+            <video src="https://dash.nixcon.net/dash/master.m3u8" id="player" controls></video>
+            <iframe src="https://kiwiirc.com/client/irc.freenode.net/?nick=nixer|?&theme=basic#nixcon"></iframe>
+        </div>
         <div id="bandwidth-control"></div>
     </div>
 </section>
@@ -65,12 +68,11 @@
         var player = dashjs.MediaPlayer().create();
         player.initialize(playerElem, baseUrl + "main.mpd", false);
         player.updateSettings({
-            lowLatencyEnabled: true
+            streaming: { lowLatencyEnabled: true, liveDelay: 10 }
         });
 
         var options = [
             { name: "auto", autoSwitch: true },
-            { name: "1080p", autoSwitch: false, index: 2 },
             { name: "720p", autoSwitch: false, index: 1 },
             { name: "480p", autoSwitch: false, index: 0 },
         ];
@@ -107,6 +109,16 @@
                     break;
                 }
             }
+        });
+
+        var currentAvailabilityStart = null;
+        player.on(dashjs.MediaPlayer.events.MANIFEST_LOADED, function(e) {
+            if (currentAvailabilityStart != null && e.data.availabilityStartTime.getTime() != currentAvailabilityStart.getTime()) {
+                // Stream restarted. Let's reload the page.
+                window.location.reload();
+            }
+
+            currentAvailabilityStart = e.data.availabilityStartTime;
         });
     }
 </script>
