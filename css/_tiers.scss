@@ -38,7 +38,10 @@ $card-break-2: 900px; // 2 column (except plat)
   color: $fg;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
+  a {
+    color: $fg!important;
+  }
   .sponsor-title {
     display: flex;
     justify-content: center;
@@ -51,33 +54,38 @@ $card-break-2: 900px; // 2 column (except plat)
   .sponsor-description {
     margin: 0.5rem;
   }
+  .card-body {
+    padding: 1rem;
+  }
 }
 
-.sponsor-card a {
-  color: $fg!important;
+.sponsor-card .card-body {
+  padding: 1rem;
 }
 
 .platinum .sponsor-card {
   border-top: solid $platinum;
   .sponsor-title {
     img {
-      max-height: 140px;
+      max-height: 130px;
     }
   }
 }
 .gold .sponsor-card {
   border-top: solid $gold;
   .sponsor-title {
+    height:85px;
     img {
-      max-height: 110px;
+      height: 100%;
     }
   }
 }
 .silver .sponsor-card {
   border-top: solid $silver;
   .sponsor-title {
+    height: 75px;
     img {
-      max-height: 85px;
+      height: 100%;
     }
   }
 }
@@ -88,4 +96,44 @@ $card-break-2: 900px; // 2 column (except plat)
       max-height: 65px;
     }
   }
+}
+
+// 'sponsoring' specific styling
+
+// remove list style specifically on
+// sponsoring info requirements listing
+.unlist {
+  list-style: none;
+}
+
+#sponsoring .sponsors {
+  grid-template-columns: minmax(300px, 1fr)!important;
+}
+
+.platinum.sponsor-card {
+  h4 {
+    font-size: 1.4em;
+  }
+  border: thick solid $platinum;
+}
+
+.gold.sponsor-card {
+  h4 {
+    font-size: 1.3em;
+  }
+  border: solid $gold;
+}
+
+.silver.sponsor-card {
+  h4 {
+    font-size: 1.2em;
+  }
+  border: solid $silver;
+}
+
+.bronze.sponsor-card {
+  h4 {
+    font-size: 1.1em;
+  }
+  border: solid $bronze;
 }
