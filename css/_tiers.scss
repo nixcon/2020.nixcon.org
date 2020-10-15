@@ -74,7 +74,7 @@ $card-break-2: 900px; // 2 column (except plat)
 .gold .sponsor-card {
   border-top: solid $gold;
   .sponsor-title {
-    height:85px;
+    height: 4em;
     img {
       height: 100%;
     }
@@ -83,7 +83,7 @@ $card-break-2: 900px; // 2 column (except plat)
 .silver .sponsor-card {
   border-top: solid $silver;
   .sponsor-title {
-    height: 75px;
+    height: 3em;
     img {
       height: 100%;
     }
