@@ -56,5 +56,15 @@
                 }
             }
         });
+
+        var currentAvailabilityStart = null;
+        player.on(dashjs.MediaPlayer.events.MANIFEST_LOADED, function(e) {
+            if (currentAvailabilityStart != null && e.data.availabilityStartTime.getTime() != currentAvailabilityStart.getTime()) {
+                // Stream restarted. Let's reload the page.
+                window.location.reload();
+            }
+
+            currentAvailabilityStart = e.data.availabilityStartTime;
+        });
     }
 </script>
