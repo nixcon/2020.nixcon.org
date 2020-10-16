@@ -225,11 +225,7 @@ main {
       }
       font-size: 2rem;
     }
-    .hero-text-badge {
-      @media screen and (max-width: $mobile-breakpoint) {
-        font-size: 1.25rem;
-      }
-      font-size: 1.5rem;
+    .hero-text-badge, .hero-text-emblem {
       padding: 0.5rem 1rem;
       margin-left: -1rem;
       margin-top: 1.05rem;
@@ -237,6 +233,21 @@ main {
       background-color: $blue-dark;
       width: max-content;
       color: $white;
+    }
+    .hero-text-badge {
+      @media screen and (max-width: $mobile-breakpoint) {
+        font-size: 1.25rem;
+      }
+      font-size: 1.5rem;
+    }
+    .hero-text-emblem {
+      @media screen and (max-width: $mobile-breakpoint) {
+        font-size: 1.5rem;
+      }
+      font-size: 2rem;
+      display: block;
+      margin-left:1rem;
+      margin-bottom:1.5rem;
     }
   }
   .hero-logo {
