@@ -32,7 +32,7 @@
         var player = dashjs.MediaPlayer().create();
         player.initialize(playerElem, baseUrl + "main.mpd", false);
         player.updateSettings({
-            streaming: { lowLatencyEnabled: true, liveDelay: 10 }
+            streaming: { lowLatencyEnabled: true, liveDelay: 10, liveCatchupLatencyThreshold: 20, liveCatchUpPlaybackRate: 0.2 }
         });
 
         var options = [
