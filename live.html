@@ -63,7 +63,7 @@
             <code>nix-shell --packages vlc --run "vlc https://dash.nixcon.net/dash/master.m3u8"</code>
             <p>or (macOS users try this one):<p>
             <code>nix-shell --packages mpv --run "mpv https://dash.nixcon.net/dash/master.m3u8"</code>
-            <p>Also available <a href="https://www.youtube.com/watch?v=7sQa04olUA0">on YouTube</a>, which supports rewind if you want to catch up and see previous talks!<p>
+            <p>The stream will be broadcast <a href="https://www.youtube.com/channel/UCjqkNrQ8F3OhKSCfCgagWLg">to YouTube</a> as well, for devices where watching this version does not work.<p>
         </div>
             <div class="container">
                 <p>Between sessions, join the breakout rooms on Jitsi!        
@@ -83,7 +83,7 @@
         var player = dashjs.MediaPlayer().create();
         player.initialize(playerElem, baseUrl + "main.mpd", false);
         player.updateSettings({
-            streaming: { lowLatencyEnabled: true, liveDelay: 10 }
+            streaming: { lowLatencyEnabled: true, liveDelay: 10, liveCatchupLatencyThreshold: 20, liveCatchUpPlaybackRate: 0.2 }
         });
 
         var options = [
